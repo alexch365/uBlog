@@ -5,8 +5,9 @@ class PostSerializer
 
   def serialize_with_data
     {
-      title: @post[:title],
-      body: @post[:body],
+      id: @post.id,
+      title: @post.title,
+      body: @post.body,
       login: @post.user.login,
       author_ip: @post.author_ip.to_s
     }

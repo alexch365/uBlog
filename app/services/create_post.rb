@@ -1,17 +1,19 @@
 # frozen_string_literal: true
 
+require 'resolv'
+
 class CreatePost
   include ActiveModel::Validations
 
   validate :check_post_attributes
-  attr_reader :title, :body, :author_ip, :post
+  attr_reader :title, :body, :author_ip, :author_login, :post
 
   def self.execute(params)
     service = new(params)
     return service if service.invalid?
 
     service.create_author
-    service.create_post
+    service.create
     service
   end
 
@@ -25,7 +27,7 @@ class CreatePost
     @post_attributes.merge!(user_id: author.id)
   end
 
-  def create_post
+  def create
     @post = Post.create(@post_attributes)
   end
 

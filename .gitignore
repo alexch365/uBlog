@@ -24,3 +24,4 @@
 .idea
 .rspec
 .rubocop.yml
+config/database.yml

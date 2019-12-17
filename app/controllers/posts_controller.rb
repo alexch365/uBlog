@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   protected
 
   def post_params
-    params.require(:post).permit(:title, :content, :author_ip, :author_login).tap do |param|
+    params.require(:post).permit(:title, :body, :author_ip, :author_login).tap do |param|
       param[:author_ip] ||= request.remote_ip
     end
   end
