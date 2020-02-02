@@ -35,5 +35,3 @@ GET http://localhost:3000/posts/top?limit=100
 ```
 GET http://localhost:3000/co_authors
 ```
-
-SQL задание в файле `sql_task.sql`
